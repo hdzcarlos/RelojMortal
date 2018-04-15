@@ -151,6 +151,7 @@ public class Principal extends javax.swing.JFrame {
     private void pararCrono(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pararCrono
         System.out.println("Paramos crono");
         crono.setEsActivo(false);
+        crono.reset();
        
         
     }//GEN-LAST:event_pararCrono

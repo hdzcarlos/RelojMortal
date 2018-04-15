@@ -26,7 +26,7 @@ public class Crono extends Thread {
         try {
             while(true){
             while (esActivo) {
-                Thread.sleep(1000L);
+                  Thread.sleep(1000L);
                 ++segundos;
                 if (segundos == 60) {
                     ++minutos;
@@ -48,7 +48,26 @@ public class Crono extends Thread {
     }
      public String horaFormateada(){
         String horaFormateada = null;
-        horaFormateada = horas + ":" + minutos+ ":" + segundos;
+        String h = "";
+        String m = "";
+        String s = "";
+        if(horas <= 9){
+            h="0"+horas;
+        }else{
+            h=String.valueOf(horas);
+        }
+        if(minutos <=9){
+            m="0"+ minutos;
+            
+        }else{
+            m =String.valueOf(minutos);
+        }
+        if(segundos <= 9){
+            s="0" + segundos;
+        }else{
+            s = String.valueOf(segundos);
+        }
+        horaFormateada = h + ":" + m + ":" + s;
         return horaFormateada;
     }
 
@@ -58,6 +77,12 @@ public class Crono extends Thread {
 
     public void setEsActivo(boolean esActivo) {
         this.esActivo = esActivo;
+    }
+    public void reset(){
+        horas = 0;
+        minutos = 0;
+        segundos = 0;
+        principal.setTime(horaFormateada());
     }
    
 
